@@ -1,0 +1,13 @@
+ python smpp_server.py   --listen 57.128.20.2:2775  --ip-whitelist-file ./whitelist.txt --ngs-base-url "https://sisbird.nextgenswitch.com"   --ngs-auth-code "9ikY6PvFQtMWuUnR0Oj1JRWaBVAnL01Jy3Lyzscj2joxgKmVBswtFvdZG8O8JraD"   --ngs-auth-secret "88REH3UBZZoUjU60f3QLNFoxN8bquZl0VFtWPvYzMwvQwqPRkevkmHVvyAGxpzMd"   --http-path /ngs/status --ngs-status-callback http://127.0.0.1:8080/ngs/status --csv-log /usr/src/work/smpp/smpp_server.csv
+
+
+python3 smpp_test_client_trx.py \
+  --host 57.128.20.2 \
+  --port 2775 \
+  --system-id origin \
+  --password origin \
+  --src 1000 \
+  --dst 1000 \
+  --text "G-241652 is your GOOGLE verification code. Don't share your code with anyone." \
+  --dlr-timeout 180 \
+  --enquire-interval 10

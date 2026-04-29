@@ -1,0 +1,5 @@
+podman run -d   --name asterisk15-g729-test   --restart unless-stopped   -p 57.128.20.2:5060:5060/udp   -p 57.128.20.2:10000-10100:10000-10100/udp   -v /opt/asterisk-transcoder/config:/etc/asterisk:Z   -v /opt/asterisk-transcoder/logs:/var/log/asterisk:Z   -v /opt/asterisk-transcoder/spool:/var/spool/asterisk:Z   asterisk15-g729-test
+
+
+
+docker exec -it asterisk15-g729-test asterisk -rvvv

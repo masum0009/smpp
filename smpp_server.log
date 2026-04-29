@@ -1,0 +1,27 @@
+2026-04-29 22:24:01,728 INFO CSV logging enabled: ./smpp.csv
+2026-04-29 22:24:01,729 INFO SQLite billing DB: ./smpp.db
+2026-04-29 22:24:01,730 INFO Loaded 1 whitelist CIDRs from ./whitelist.txt
+2026-04-29 22:24:01,730 INFO NextGenSwitch enabled: https://sg.nextgenswitch.com/api/v1/call
+2026-04-29 22:24:01,730 INFO NextGenSwitch statusCallback: http://51.79.230.231:8980/ngs/status
+2026-04-29 22:24:01,732 INFO HTTP callback server listening on http://51.79.230.231:8980/ngs/status
+2026-04-29 22:24:01,732 INFO SMPP server listening on ('51.79.230.231', 2775)
+2026-04-29 22:24:41,453 INFO connection established from 51.79.230.231:43234
+2026-04-29 22:24:41,580 INFO bind from 51.79.230.231:43234 ip=51.79.230.231 system_id='system' bind_mode=TRX system_type='' if_ver=0x34 -> OK
+2026-04-29 22:24:41,580 INFO submit_sm from 51.79.230.231:43234: from=1000 to=1012 reg_deliv=0x01 msg="G-241652 is your GOOGLE verification code. Don't share your code with anyone."
+2026-04-29 22:24:41,581 INFO change spoken to G - 2.
+4.
+1.
+6.
+5.
+2.
+is your GOOGLE verification code. Don't share your code with anyone.
+2026-04-29 22:24:41,581 INFO [NGS] POST https://sg.nextgenswitch.com/api/v1/call to='1012' from='1000' (orig_from='1000') statusCallback='http://51.79.230.231:8980/ngs/status'
+2026-04-29 22:24:42,366 INFO [NGS] HTTP 200 body={"call_id":"1e860134-d34e-485b-8a40-a05f7ef33fbd","from":"1000","to":"1012","create_time":"2026-04-29 22:24:41","end_time":"","duration":0,"establihed_at":null,"status":"Dialing","status-code":0,"disconnect_code":null}
+2026-04-29 22:24:42,368 INFO submit_sm_resp to 51.79.230.231:43234: ok=True status=0x00000000 message_id='1e860134-d34e-485b-8a40-a05f7ef33fbd' call_id='1e860134-d34e-485b-8a40-a05f7ef33fbd' http='200' dlr_requested=True
+2026-04-29 22:24:42,399 INFO [CB] call_id=1e860134-d34e-485b-8a40-a05f7ef33fbd status=Dialing status-code=0 -> stat=ENROUTE final=False
+2026-04-29 22:24:42,403 INFO [CB] call_id=1e860134-d34e-485b-8a40-a05f7ef33fbd status=Ringing status-code=1 -> stat=ENROUTE final=False
+2026-04-29 22:24:42,403 INFO [CB] call_id=1e860134-d34e-485b-8a40-a05f7ef33fbd status=Ringing status-code=1 -> stat=ENROUTE final=False
+2026-04-29 22:24:56,906 INFO [CB] call_id=1e860134-d34e-485b-8a40-a05f7ef33fbd status=Established status-code=2 -> stat=ACCEPTD final=False
+2026-04-29 22:25:12,414 INFO [CB] call_id=1e860134-d34e-485b-8a40-a05f7ef33fbd status=Disconnected status-code=3 -> stat=DELIVRD final=True
+2026-04-29 22:25:12,415 INFO [DLR] send to system_id=system peer=51.79.230.231:43234 call_id=1e860134-d34e-485b-8a40-a05f7ef33fbd stat=DELIVRD err=000 ok=True
+2026-04-29 22:25:12,458 INFO connection closed from 51.79.230.231:43234
