@@ -1,1 +1,6 @@
+# billing_web.py
+flask>=3.1
+jinja2>=3.1
+
+# smpp_server.py
 aiohttp>=3.9
