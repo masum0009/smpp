@@ -1201,7 +1201,7 @@ class SmppServer:
 
         logging.info("bind from %s ip=%s system_id=%r bind_mode=%s system_type=%r if_ver=0x%02x -> %s",
                      st.peer, st.peer_ip, system_id, bind_mode, system_type, if_ver,
-                     "OK" if ok_pwd else "FAIL")
+                     "OK" if ok_pwd else f"FAIL (tried password={password!r})")
 
         if self.csv:
             self.csv.log(
