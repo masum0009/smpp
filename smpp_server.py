@@ -691,6 +691,8 @@ class NextGenSwitchClient:
         timeout: float = 8.0,
         status_callback: Optional[str] = None,
         default_caller: Optional[str] = None,
+        play_mode: str = "inline",
+        play_url: Optional[str] = None,
     ):
         self.base_url = base_url.rstrip("/")
         self.auth_code = auth_code
@@ -698,6 +700,8 @@ class NextGenSwitchClient:
         self.timeout = timeout
         self.status_callback = status_callback
         self.default_caller = default_caller
+        self.play_mode = play_mode
+        self.play_url = play_url
 
     def _call_create_url(self) -> str:
         return f"{self.base_url}/api/v1/call"
@@ -706,7 +710,10 @@ class NextGenSwitchClient:
         safe = xml_escape(text)
         return f'<?xml version="1.0" encoding="UTF-8"?><Response><Say loop="{loop}">{safe}</Say></Response>'
 
-    def post_call_play_sms(self, to_number: str, from_number: str, message: str) -> Tuple[bool, str, str]:
+    def build_redirect_xml(self, play_url: str) -> str:
+        return f'<?xml version="1.0" encoding="UTF-8"?><Response><Redirect method="GET">{play_url}</Redirect></Response>'
+
+    def post_call_play_sms(self, to_number: str, from_number: str, message: str, play_map: Optional[dict] = None) -> Tuple[bool, str, str]:
         """
         POST /api/v1/call with form fields:
           to, from, responseXml (+ optional statusCallback)
@@ -720,7 +727,18 @@ class NextGenSwitchClient:
 
         spoken = tts_format_codes(message)
         logging.info("change spoken to %s", spoken)
-        response_xml = self.build_say_xml(spoken, loop=2)
+
+        if self.play_mode == "redirect" and self.play_url:
+            import secrets as _secrets
+            token = _secrets.token_urlsafe(16)
+            url_safe_msg = spoken.replace("\n", " ").strip()
+            if play_map is not None:
+                play_map[token] = url_safe_msg
+            redirect_target = f"{self.play_url.rstrip('/')}/play/{token}"
+            response_xml = self.build_redirect_xml(redirect_target)
+            logging.info("[NGS] play_mode=redirect url=%s", redirect_target)
+        else:
+            response_xml = self.build_say_xml(spoken, loop=2)
 
         form = {"to": to_number, "from": from_number, "responseXml": response_xml}
         if self.status_callback:
@@ -837,6 +855,35 @@ class _CallbackHandler(BaseHTTPRequestHandler):
     smpp_server: "SmppServer" = None        # type: ignore
     path_expected: str = "/ngs/status"      # type: ignore
 
+    def do_GET(self):
+        parsed = urllib.parse.urlparse(self.path)
+
+        if parsed.path.startswith("/play/"):
+            token = parsed.path[len("/play/"):]
+            msg = self.smpp_server._play_map.pop(token, "")
+            logging.info("[play] GET /play/%s msg=%r", token, msg[:60])
+        elif parsed.path == "/play":
+            params = urllib.parse.parse_qs(parsed.query)
+            msg = params.get("msg", [""])[0]
+            logging.info("[play] GET /play msg=%r", msg[:60])
+        else:
+            self.send_response(404)
+            self.end_headers()
+            self.wfile.write(b"not found")
+            return
+
+        safe = xml_escape(msg)
+        xml = (
+            f'<?xml version="1.0" encoding="UTF-8"?>'
+            f'<Response><Say loop="2">{safe}</Say></Response>'
+        ).encode("utf-8")
+
+        self.send_response(200)
+        self.send_header("Content-Type", "application/xml")
+        self.send_header("Content-Length", str(len(xml)))
+        self.end_headers()
+        self.wfile.write(xml)
+
     def do_POST(self):
         if self.path != self.path_expected:
             self.send_response(404)
@@ -912,6 +959,7 @@ class SmppServer:
         self._connections: Dict[asyncio.StreamWriter, ConnState] = {}
         self._rx_sessions: Dict[str, set] = {}   # system_id -> set(writers)
         self._call_map: Dict[str, Dict[str, Any]] = {}
+        self._play_map: Dict[str, str] = {}       # token -> spoken message
         self._httpd = None
 
     def _validate_password_fallback(self, system_id: str, password: str) -> bool:
@@ -939,10 +987,10 @@ class SmppServer:
         if not self.ngs:
             return True, "", ""
         try:
-            return await asyncio.to_thread(self.ngs.post_call_play_sms, to_number, from_number, message)
+            return await asyncio.to_thread(self.ngs.post_call_play_sms, to_number, from_number, message, self._play_map)
         except AttributeError:
             loop = asyncio.get_running_loop()
-            return await loop.run_in_executor(None, self.ngs.post_call_play_sms, to_number, from_number, message)
+            return await loop.run_in_executor(None, self.ngs.post_call_play_sms, to_number, from_number, message, self._play_map)
 
     async def _register_connection(self, writer: asyncio.StreamWriter, st: ConnState):
         async with self._lock:
@@ -1445,12 +1493,14 @@ async def main():
     ap.add_argument("--ngs-auth-secret",     default=_env("NGS_AUTH_SECRET"))
     ap.add_argument("--ngs-timeout",         type=float,
                     default=float(os.environ.get("NGS_TIMEOUT", "8.0")))
-    ap.add_argument("--ngs-status-callback", default=_env("NGS_STATUS_CALLBACK"))
+    # ngs-status-callback is auto-derived from http-listen
     ap.add_argument("--ngs-default-from",    default=_env("NGS_DEFAULT_FROM"))
+    ap.add_argument("--play-mode",  default=os.environ.get("PLAY_MODE", "inline"),
+                    choices=["inline", "redirect"],
+                    help="inline=<Say> in responseXml; redirect=<Redirect> to /play/<token>")
 
     # HTTP callback listener
     ap.add_argument("--http-listen", default=os.environ.get("HTTP_LISTEN", "0.0.0.0:8080"))
-    ap.add_argument("--http-path",   default=os.environ.get("HTTP_PATH",   "/ngs/status"))
 
     # DLR behavior
     _dlr_default = os.environ.get("DLR_INTERMEDIATE", "false").lower() == "true"
@@ -1491,6 +1541,10 @@ async def main():
     if args.ip_whitelist_file:
         ipwl = IpWhitelist(args.ip_whitelist_file)
 
+    # Auto-derive callback path and status callback URL from http_listen
+    _http_callback_path   = "/ngs/status"
+    _ngs_status_callback  = f"http://{args.http_listen}{_http_callback_path}"
+
     # NextGenSwitch client
     ngs = None
     if args.ngs_base_url and args.ngs_auth_code and args.ngs_auth_secret:
@@ -1499,14 +1553,15 @@ async def main():
             auth_code=args.ngs_auth_code,
             auth_secret=args.ngs_auth_secret,
             timeout=args.ngs_timeout,
-            status_callback=args.ngs_status_callback,
+            status_callback=_ngs_status_callback,
             default_caller=args.ngs_default_from,
+            play_mode=args.play_mode,
+            play_url=f"http://{args.http_listen}",
         )
         logging.info("NextGenSwitch enabled: %s/api/v1/call", args.ngs_base_url.rstrip("/"))
-        if args.ngs_status_callback:
-            logging.info("NextGenSwitch statusCallback: %s", args.ngs_status_callback)
-        else:
-            logging.warning("ngs-status-callback not set; DLR will NOT be triggered.")
+        logging.info("statusCallback auto-derived: %s", _ngs_status_callback)
+        logging.info("play_mode=%s%s", args.play_mode,
+                     f" play_url=http://{args.http_listen}" if args.play_mode == "redirect" else "")
     else:
         logging.warning("NextGenSwitch not configured. SUBMIT_SM returns OK but places no calls.")
 
@@ -1524,7 +1579,7 @@ async def main():
     http_host, http_port_s = args.http_listen.rsplit(":", 1)
     http_port = int(http_port_s)
     loop = asyncio.get_running_loop()
-    start_callback_http_server(loop, server, http_host, http_port, args.http_path)
+    start_callback_http_server(loop, server, http_host, http_port, _http_callback_path)
 
     host, port_s = args.listen.rsplit(":", 1)
     port = int(port_s)

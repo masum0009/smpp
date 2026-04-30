@@ -84,14 +84,12 @@ _SMPP_CONFIG_GROUPS = [
     ("Listen", [
         ("SMPP_LISTEN",  "SMPP Listen (host:port)",          "text"),
         ("HTTP_LISTEN",  "HTTP Callback Listen (host:port)", "text"),
-        ("HTTP_PATH",    "HTTP Callback Path",               "text"),
     ]),
     ("NextGenSwitch", [
-        ("NGS_BASE_URL",        "Base URL",              "text"),
-        ("NGS_AUTH_CODE",       "Auth Code",             "text"),
-        ("NGS_AUTH_SECRET",     "Auth Secret",           "text"),
-        ("NGS_STATUS_CALLBACK", "Status Callback URL",   "text"),
-        ("NGS_TIMEOUT",         "Timeout (s)",           "number"),
+        ("NGS_BASE_URL",    "Base URL",    "text"),
+        ("NGS_AUTH_CODE",   "Auth Code",   "text"),
+        ("NGS_AUTH_SECRET", "Auth Secret", "text"),
+        ("NGS_TIMEOUT",     "Timeout (s)", "number"),
     ]),
     ("Files & Options", [
         ("DB_PATH",           "Database Path",       "text"),
@@ -99,6 +97,7 @@ _SMPP_CONFIG_GROUPS = [
         ("IP_WHITELIST_FILE", "IP Whitelist File",   "text"),
         ("LOG_LEVEL",         "Log Level",           "select:DEBUG,INFO,WARNING,ERROR"),
         ("DLR_INTERMEDIATE",  "DLR Intermediate",    "select:true,false"),
+        ("PLAY_MODE",         "Play Mode",           "select:inline,redirect"),
     ]),
 ]
 

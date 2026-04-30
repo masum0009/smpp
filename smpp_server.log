@@ -25,3 +25,273 @@ is your GOOGLE verification code. Don't share your code with anyone.
 2026-04-29 22:25:12,414 INFO [CB] call_id=1e860134-d34e-485b-8a40-a05f7ef33fbd status=Disconnected status-code=3 -> stat=DELIVRD final=True
 2026-04-29 22:25:12,415 INFO [DLR] send to system_id=system peer=51.79.230.231:43234 call_id=1e860134-d34e-485b-8a40-a05f7ef33fbd stat=DELIVRD err=000 ok=True
 2026-04-29 22:25:12,458 INFO connection closed from 51.79.230.231:43234
+2026-04-30 09:25:21,862 INFO SQLite billing DB: ./smpp.db
+2026-04-30 09:25:21,862 INFO Loaded 1 whitelist CIDRs from ./whitelist.txt
+2026-04-30 09:25:21,862 INFO NextGenSwitch enabled: https://sg.nextgenswitch.com/api/v1/call
+2026-04-30 09:25:21,862 INFO play_mode=redirect play_url=http://51.79.230.231:8090
+2026-04-30 09:25:21,862 INFO NextGenSwitch statusCallback: http://51.79.230.231:8980/ngs/status
+2026-04-30 09:25:22,573 INFO HTTP callback server listening on http://51.79.230.231:8980/ngs/status
+2026-04-30 09:25:22,573 INFO SMPP server listening on ('51.79.230.231', 2775)
+2026-04-30 09:26:41,483 INFO connection established from 51.79.230.231:57156
+2026-04-30 09:26:41,605 INFO bind from 51.79.230.231:57156 ip=51.79.230.231 system_id='system' bind_mode=TRX system_type='' if_ver=0x34 -> OK
+2026-04-30 09:26:41,605 INFO submit_sm from 51.79.230.231:57156: from=1000 to=1012 reg_deliv=0x01 msg="your GOOGLE verification code is G-241652 . Don't share your code with anyone."
+2026-04-30 09:26:41,606 INFO change spoken to your GOOGLE verification code is G - 2.
+4.
+1.
+6.
+5.
+2.
+. Don't share your code with anyone.
+2026-04-30 09:26:41,606 INFO [NGS] play_mode=redirect url=http://51.79.230.231:8090?msg=your%20GOOGLE%20verification%20code%20is%20G%20-%202.%0A4.%0A1.%0A6.%0A5.%0A2.%0A.%20Don%27t%20share%20your%20code%20with%20anyone.
+2026-04-30 09:26:41,606 INFO [NGS] POST https://sg.nextgenswitch.com/api/v1/call to='1012' from='1000' (orig_from='1000') statusCallback='http://51.79.230.231:8980/ngs/status'
+2026-04-30 09:26:41,716 INFO [NGS] HTTP 200 body={"call_id":"063a17e9-d76f-4144-b591-23be15140a0c","from":"1000","to":"1012","create_time":"2026-04-30 09:26:41","end_time":"","duration":0,"establihed_at":null,"status":"Dialing","status-code":0,"disconnect_code":null}
+2026-04-30 09:26:41,718 INFO submit_sm_resp to 51.79.230.231:57156: ok=True status=0x00000000 message_id='063a17e9-d76f-4144-b591-23be15140a0c' call_id='063a17e9-d76f-4144-b591-23be15140a0c' http='200' dlr_requested=True
+2026-04-30 09:26:41,748 INFO [CB] call_id=063a17e9-d76f-4144-b591-23be15140a0c status=Ringing status-code=1 -> stat=ENROUTE final=False
+2026-04-30 09:26:41,748 INFO [CB] call_id=063a17e9-d76f-4144-b591-23be15140a0c status=Ringing status-code=1 -> stat=ENROUTE final=False
+2026-04-30 09:26:41,749 INFO [CB] call_id=063a17e9-d76f-4144-b591-23be15140a0c status=Dialing status-code=0 -> stat=ENROUTE final=False
+2026-04-30 09:26:42,766 INFO [CB] call_id=063a17e9-d76f-4144-b591-23be15140a0c status=NoAnswer status-code=5 -> stat=UNDELIV final=True
+2026-04-30 09:26:42,766 INFO [DLR] send to system_id=system peer=51.79.230.231:57156 call_id=063a17e9-d76f-4144-b591-23be15140a0c stat=UNDELIV err=005 ok=True
+2026-04-30 09:26:42,769 INFO connection closed from 51.79.230.231:57156
+2026-04-30 09:29:38,712 INFO SQLite billing DB: ./smpp.db
+2026-04-30 09:29:38,712 INFO Loaded 1 whitelist CIDRs from ./whitelist.txt
+2026-04-30 09:29:38,712 INFO NextGenSwitch enabled: https://sg.nextgenswitch.com/api/v1/call
+2026-04-30 09:29:38,713 INFO play_mode=redirect play_url=http://51.79.230.231:8090
+2026-04-30 09:29:38,713 INFO NextGenSwitch statusCallback: http://51.79.230.231:8980/ngs/status
+2026-04-30 09:29:38,714 INFO HTTP callback server listening on http://51.79.230.231:8980/ngs/status
+2026-04-30 09:29:38,714 INFO SMPP server listening on ('51.79.230.231', 2775)
+2026-04-30 09:29:57,887 INFO connection established from 51.79.230.231:59088
+2026-04-30 09:29:58,008 INFO bind from 51.79.230.231:59088 ip=51.79.230.231 system_id='system' bind_mode=TRX system_type='' if_ver=0x34 -> OK
+2026-04-30 09:29:58,008 INFO submit_sm from 51.79.230.231:59088: from=1000 to=1012 reg_deliv=0x01 msg="G-241652 is your GOOGLE verification code. Don't share your code with anyone."
+2026-04-30 09:29:58,008 INFO change spoken to G - 2.
+4.
+1.
+6.
+5.
+2.
+is your GOOGLE verification code. Don't share your code with anyone.
+2026-04-30 09:29:58,008 INFO [NGS] play_mode=redirect url=http://51.79.230.231:8090/play?msg=G%20-%202.%0A4.%0A1.%0A6.%0A5.%0A2.%0Ais%20your%20GOOGLE%20verification%20code.%20Don%27t%20share%20your%20code%20with%20anyone.
+2026-04-30 09:29:58,008 INFO [NGS] POST https://sg.nextgenswitch.com/api/v1/call to='1012' from='1000' (orig_from='1000') statusCallback='http://51.79.230.231:8980/ngs/status'
+2026-04-30 09:29:58,119 INFO [NGS] HTTP 200 body={"call_id":"38841219-924c-4a85-ad08-598bd332f6b5","from":"1000","to":"1012","create_time":"2026-04-30 09:29:58","end_time":"","duration":0,"establihed_at":null,"status":"Dialing","status-code":0,"disconnect_code":null}
+2026-04-30 09:29:58,120 INFO submit_sm_resp to 51.79.230.231:59088: ok=True status=0x00000000 message_id='38841219-924c-4a85-ad08-598bd332f6b5' call_id='38841219-924c-4a85-ad08-598bd332f6b5' http='200' dlr_requested=True
+2026-04-30 09:29:58,159 INFO [CB] call_id=38841219-924c-4a85-ad08-598bd332f6b5 status=Ringing status-code=1 -> stat=ENROUTE final=False
+2026-04-30 09:29:58,160 INFO [CB] call_id=38841219-924c-4a85-ad08-598bd332f6b5 status=Dialing status-code=0 -> stat=ENROUTE final=False
+2026-04-30 09:29:58,160 INFO [CB] call_id=38841219-924c-4a85-ad08-598bd332f6b5 status=Ringing status-code=1 -> stat=ENROUTE final=False
+2026-04-30 09:29:59,160 INFO [CB] call_id=38841219-924c-4a85-ad08-598bd332f6b5 status=NoAnswer status-code=5 -> stat=UNDELIV final=True
+2026-04-30 09:29:59,160 INFO [DLR] send to system_id=system peer=51.79.230.231:59088 call_id=38841219-924c-4a85-ad08-598bd332f6b5 stat=UNDELIV err=005 ok=True
+2026-04-30 09:29:59,162 INFO connection closed from 51.79.230.231:59088
+2026-04-30 09:33:25,732 INFO SQLite billing DB: ./smpp.db
+2026-04-30 09:33:25,732 INFO Loaded 1 whitelist CIDRs from ./whitelist.txt
+2026-04-30 09:33:25,732 INFO NextGenSwitch enabled: https://sg.nextgenswitch.com/api/v1/call
+2026-04-30 09:33:25,732 INFO play_mode=redirect play_url=http://51.79.230.231:8090
+2026-04-30 09:33:25,732 INFO NextGenSwitch statusCallback: http://51.79.230.231:8980/ngs/status
+2026-04-30 09:33:26,441 INFO HTTP callback server listening on http://51.79.230.231:8980/ngs/status
+2026-04-30 09:33:26,442 INFO SMPP server listening on ('51.79.230.231', 2775)
+2026-04-30 09:33:43,504 INFO connection established from 51.79.230.231:32892
+2026-04-30 09:33:43,630 INFO bind from 51.79.230.231:32892 ip=51.79.230.231 system_id='system' bind_mode=TRX system_type='' if_ver=0x34 -> OK
+2026-04-30 09:33:43,630 INFO submit_sm from 51.79.230.231:32892: from=1000 to=1012 reg_deliv=0x01 msg="G-241652 is your GOOGLE verification code. Don't share your code with anyone."
+2026-04-30 09:33:43,630 INFO change spoken to G - 2.
+4.
+1.
+6.
+5.
+2.
+is your GOOGLE verification code. Don't share your code with anyone.
+2026-04-30 09:33:43,630 INFO [NGS] play_mode=redirect url=http://51.79.230.231:8090/play?msg=G%20-%202.%0A4.%0A1.%0A6.%0A5.%0A2.%0Ais%20your%20GOOGLE%20verification%20code.%20Don%27t%20share%20your%20code%20with%20anyone.
+2026-04-30 09:33:43,631 INFO [NGS] POST https://sg.nextgenswitch.com/api/v1/call to='1012' from='1000' (orig_from='1000') statusCallback='http://51.79.230.231:8980/ngs/status'
+2026-04-30 09:33:43,758 INFO [NGS] HTTP 200 body={"call_id":"dd1af5f1-cd5e-47a4-97c4-eb99f83f3a2e","from":"1000","to":"1012","create_time":"2026-04-30 09:33:43","end_time":"","duration":0,"establihed_at":null,"status":"Dialing","status-code":0,"disconnect_code":null}
+2026-04-30 09:33:43,759 INFO submit_sm_resp to 51.79.230.231:32892: ok=True status=0x00000000 message_id='dd1af5f1-cd5e-47a4-97c4-eb99f83f3a2e' call_id='dd1af5f1-cd5e-47a4-97c4-eb99f83f3a2e' http='200' dlr_requested=True
+2026-04-30 09:33:43,795 INFO [CB] call_id=dd1af5f1-cd5e-47a4-97c4-eb99f83f3a2e status=Ringing status-code=1 -> stat=ENROUTE final=False
+2026-04-30 09:33:43,795 INFO [CB] call_id=dd1af5f1-cd5e-47a4-97c4-eb99f83f3a2e status=Dialing status-code=0 -> stat=ENROUTE final=False
+2026-04-30 09:33:43,796 INFO [CB] call_id=dd1af5f1-cd5e-47a4-97c4-eb99f83f3a2e status=Ringing status-code=1 -> stat=ENROUTE final=False
+2026-04-30 09:33:44,799 INFO [CB] call_id=dd1af5f1-cd5e-47a4-97c4-eb99f83f3a2e status=NoAnswer status-code=5 -> stat=UNDELIV final=True
+2026-04-30 09:33:44,799 INFO [DLR] send to system_id=system peer=51.79.230.231:32892 call_id=dd1af5f1-cd5e-47a4-97c4-eb99f83f3a2e stat=UNDELIV err=005 ok=True
+2026-04-30 09:33:44,800 INFO connection closed from 51.79.230.231:32892
+2026-04-30 09:34:12,780 INFO SQLite billing DB: ./smpp.db
+2026-04-30 09:34:12,780 INFO Loaded 1 whitelist CIDRs from ./whitelist.txt
+2026-04-30 09:34:12,780 INFO NextGenSwitch enabled: https://sg.nextgenswitch.com/api/v1/call
+2026-04-30 09:34:12,780 INFO play_mode=redirect play_url=http://51.79.230.231:8980
+2026-04-30 09:34:12,780 INFO NextGenSwitch statusCallback: http://51.79.230.231:8980/ngs/status
+2026-04-30 09:34:13,490 INFO HTTP callback server listening on http://51.79.230.231:8980/ngs/status
+2026-04-30 09:34:13,490 INFO SMPP server listening on ('51.79.230.231', 2775)
+2026-04-30 09:34:27,371 INFO connection established from 51.79.230.231:33438
+2026-04-30 09:34:27,496 INFO bind from 51.79.230.231:33438 ip=51.79.230.231 system_id='system' bind_mode=TRX system_type='' if_ver=0x34 -> FAIL (tried password='pasword')
+2026-04-30 09:34:27,496 INFO connection closed from 51.79.230.231:33438
+2026-04-30 09:34:42,783 INFO SQLite billing DB: ./smpp.db
+2026-04-30 09:34:42,783 INFO Loaded 1 whitelist CIDRs from ./whitelist.txt
+2026-04-30 09:34:42,783 INFO NextGenSwitch enabled: https://sg.nextgenswitch.com/api/v1/call
+2026-04-30 09:34:42,783 INFO play_mode=redirect play_url=http://51.79.230.231:8980
+2026-04-30 09:34:42,783 INFO NextGenSwitch statusCallback: http://51.79.230.231:8980/ngs/status
+2026-04-30 09:34:42,785 INFO HTTP callback server listening on http://51.79.230.231:8980/ngs/status
+2026-04-30 09:34:42,785 INFO SMPP server listening on ('51.79.230.231', 2775)
+2026-04-30 09:35:00,452 INFO connection established from 51.79.230.231:33888
+2026-04-30 09:35:00,579 INFO bind from 51.79.230.231:33888 ip=51.79.230.231 system_id='system' bind_mode=TRX system_type='' if_ver=0x34 -> OK
+2026-04-30 09:35:00,579 INFO submit_sm from 51.79.230.231:33888: from=1000 to=1012 reg_deliv=0x01 msg="G-241652 is your GOOGLE verification code. Don't share your code with anyone."
+2026-04-30 09:35:00,580 INFO change spoken to G - 2.
+4.
+1.
+6.
+5.
+2.
+is your GOOGLE verification code. Don't share your code with anyone.
+2026-04-30 09:35:00,580 INFO [NGS] play_mode=redirect url=http://51.79.230.231:8980/play?msg=G%20-%202.%0A4.%0A1.%0A6.%0A5.%0A2.%0Ais%20your%20GOOGLE%20verification%20code.%20Don%27t%20share%20your%20code%20with%20anyone.
+2026-04-30 09:35:00,580 INFO [NGS] POST https://sg.nextgenswitch.com/api/v1/call to='1012' from='1000' (orig_from='1000') statusCallback='http://51.79.230.231:8980/ngs/status'
+2026-04-30 09:35:00,691 INFO [NGS] HTTP 200 body={"call_id":"cd91ffcd-4cf1-4945-89fc-148595396628","from":"1000","to":"1012","create_time":"2026-04-30 09:35:00","end_time":"","duration":0,"establihed_at":null,"status":"Dialing","status-code":0,"disconnect_code":null}
+2026-04-30 09:35:00,693 INFO submit_sm_resp to 51.79.230.231:33888: ok=True status=0x00000000 message_id='cd91ffcd-4cf1-4945-89fc-148595396628' call_id='cd91ffcd-4cf1-4945-89fc-148595396628' http='200' dlr_requested=True
+2026-04-30 09:35:00,720 INFO [CB] call_id=cd91ffcd-4cf1-4945-89fc-148595396628 status=Ringing status-code=1 -> stat=ENROUTE final=False
+2026-04-30 09:35:00,721 INFO [CB] call_id=cd91ffcd-4cf1-4945-89fc-148595396628 status=Dialing status-code=0 -> stat=ENROUTE final=False
+2026-04-30 09:35:00,724 INFO [play] GET /play msg=''
+2026-04-30 09:35:00,727 INFO [CB] call_id=cd91ffcd-4cf1-4945-89fc-148595396628 status=Ringing status-code=1 -> stat=ENROUTE final=False
+2026-04-30 09:35:01,733 INFO [CB] call_id=cd91ffcd-4cf1-4945-89fc-148595396628 status=NoAnswer status-code=5 -> stat=UNDELIV final=True
+2026-04-30 09:35:01,733 INFO [DLR] send to system_id=system peer=51.79.230.231:33888 call_id=cd91ffcd-4cf1-4945-89fc-148595396628 stat=UNDELIV err=005 ok=True
+2026-04-30 09:35:01,735 INFO connection closed from 51.79.230.231:33888
+2026-04-30 09:36:06,191 INFO SQLite billing DB: ./smpp.db
+2026-04-30 09:36:06,191 INFO Loaded 1 whitelist CIDRs from ./whitelist.txt
+2026-04-30 09:36:06,191 INFO NextGenSwitch enabled: https://sg.nextgenswitch.com/api/v1/call
+2026-04-30 09:36:06,191 INFO play_mode=redirect play_url=http://51.79.230.231:8980
+2026-04-30 09:36:06,191 INFO NextGenSwitch statusCallback: http://51.79.230.231:8980/ngs/status
+2026-04-30 09:36:06,193 INFO HTTP callback server listening on http://51.79.230.231:8980/ngs/status
+2026-04-30 09:36:06,193 INFO SMPP server listening on ('51.79.230.231', 2775)
+2026-04-30 09:36:19,405 INFO SQLite billing DB: ./smpp.db
+2026-04-30 09:36:19,406 INFO Loaded 1 whitelist CIDRs from ./whitelist.txt
+2026-04-30 09:36:19,406 INFO NextGenSwitch enabled: https://sg.nextgenswitch.com/api/v1/call
+2026-04-30 09:36:19,406 INFO play_mode=redirect play_url=http://51.79.230.231:8980
+2026-04-30 09:36:19,406 INFO NextGenSwitch statusCallback: http://51.79.230.231:8980/ngs/status
+2026-04-30 09:36:20,115 INFO HTTP callback server listening on http://51.79.230.231:8980/ngs/status
+2026-04-30 09:36:20,116 INFO SMPP server listening on ('51.79.230.231', 2775)
+2026-04-30 09:36:32,933 INFO connection established from 51.79.230.231:34910
+2026-04-30 09:36:33,056 INFO bind from 51.79.230.231:34910 ip=51.79.230.231 system_id='system' bind_mode=TRX system_type='' if_ver=0x34 -> OK
+2026-04-30 09:36:33,056 INFO submit_sm from 51.79.230.231:34910: from=1000 to=1012 reg_deliv=0x01 msg="G-241652 is your GOOGLE verification code. Don't share your code with anyone."
+2026-04-30 09:36:33,056 INFO change spoken to G - 2.
+4.
+1.
+6.
+5.
+2.
+is your GOOGLE verification code. Don't share your code with anyone.
+2026-04-30 09:36:33,057 INFO [NGS] play_mode=redirect url=http://51.79.230.231:8980/play?msg=G%20-%202.%204.%201.%206.%205.%202.%20is%20your%20GOOGLE%20verification%20code.%20Don%27t%20share%20your%20code%20with%20anyone.
+2026-04-30 09:36:33,057 INFO [NGS] POST https://sg.nextgenswitch.com/api/v1/call to='1012' from='1000' (orig_from='1000') statusCallback='http://51.79.230.231:8980/ngs/status'
+2026-04-30 09:36:33,166 INFO [NGS] HTTP 200 body={"call_id":"41f40a8d-6f4a-46e0-913b-ed198dae90f1","from":"1000","to":"1012","create_time":"2026-04-30 09:36:33","end_time":"","duration":0,"establihed_at":null,"status":"Dialing","status-code":0,"disconnect_code":null}
+2026-04-30 09:36:33,168 INFO submit_sm_resp to 51.79.230.231:34910: ok=True status=0x00000000 message_id='41f40a8d-6f4a-46e0-913b-ed198dae90f1' call_id='41f40a8d-6f4a-46e0-913b-ed198dae90f1' http='200' dlr_requested=True
+2026-04-30 09:36:33,191 INFO [play] GET /play msg=''
+2026-04-30 09:36:33,197 INFO [CB] call_id=41f40a8d-6f4a-46e0-913b-ed198dae90f1 status=Ringing status-code=1 -> stat=ENROUTE final=False
+2026-04-30 09:36:33,197 INFO [CB] call_id=41f40a8d-6f4a-46e0-913b-ed198dae90f1 status=Ringing status-code=1 -> stat=ENROUTE final=False
+2026-04-30 09:36:33,206 INFO [CB] call_id=41f40a8d-6f4a-46e0-913b-ed198dae90f1 status=Dialing status-code=0 -> stat=ENROUTE final=False
+2026-04-30 09:36:34,210 INFO [CB] call_id=41f40a8d-6f4a-46e0-913b-ed198dae90f1 status=NoAnswer status-code=5 -> stat=UNDELIV final=True
+2026-04-30 09:36:34,210 INFO [DLR] send to system_id=system peer=51.79.230.231:34910 call_id=41f40a8d-6f4a-46e0-913b-ed198dae90f1 stat=UNDELIV err=005 ok=True
+2026-04-30 09:36:34,212 INFO connection closed from 51.79.230.231:34910
+2026-04-30 09:39:50,940 INFO SQLite billing DB: ./smpp.db
+2026-04-30 09:39:50,940 INFO Loaded 1 whitelist CIDRs from ./whitelist.txt
+2026-04-30 09:39:50,940 INFO NextGenSwitch enabled: https://sg.nextgenswitch.com/api/v1/call
+2026-04-30 09:39:50,940 INFO play_mode=redirect play_url=http://51.79.230.231:8980
+2026-04-30 09:39:50,940 INFO NextGenSwitch statusCallback: http://51.79.230.231:8980/ngs/status
+2026-04-30 09:39:50,942 INFO HTTP callback server listening on http://51.79.230.231:8980/ngs/status
+2026-04-30 09:39:50,943 INFO SMPP server listening on ('51.79.230.231', 2775)
+2026-04-30 09:40:02,974 INFO connection established from 51.79.230.231:36888
+2026-04-30 09:40:03,098 INFO bind from 51.79.230.231:36888 ip=51.79.230.231 system_id='system' bind_mode=TRX system_type='' if_ver=0x34 -> OK
+2026-04-30 09:40:03,098 INFO submit_sm from 51.79.230.231:36888: from=1000 to=1012 reg_deliv=0x01 msg="G-241652 is your GOOGLE verification code. Don't share your code with anyone."
+2026-04-30 09:40:03,098 INFO change spoken to G - 2.
+4.
+1.
+6.
+5.
+2.
+is your GOOGLE verification code. Don't share your code with anyone.
+2026-04-30 09:40:03,098 INFO [NGS] play_mode=redirect url=http://51.79.230.231:8980/play/4nv9fChgD7NcpP8h9LfP7A
+2026-04-30 09:40:03,099 INFO [NGS] POST https://sg.nextgenswitch.com/api/v1/call to='1012' from='1000' (orig_from='1000') statusCallback='http://51.79.230.231:8980/ngs/status'
+2026-04-30 09:40:03,380 INFO [NGS] HTTP 200 body={"call_id":"63a502d3-0b8b-49a8-b58e-c00825feefb7","from":"1000","to":"1012","create_time":"2026-04-30 09:40:03","end_time":"","duration":0,"establihed_at":null,"status":"Dialing","status-code":0,"disconnect_code":null}
+2026-04-30 09:40:03,382 INFO submit_sm_resp to 51.79.230.231:36888: ok=True status=0x00000000 message_id='63a502d3-0b8b-49a8-b58e-c00825feefb7' call_id='63a502d3-0b8b-49a8-b58e-c00825feefb7' http='200' dlr_requested=True
+2026-04-30 09:40:03,411 INFO [play] GET /play/4nv9fChgD7NcpP8h9LfP7A msg="G - 2. 4. 1. 6. 5. 2. is your GOOGLE verification code. Don'"
+2026-04-30 09:40:03,414 INFO [CB] call_id=63a502d3-0b8b-49a8-b58e-c00825feefb7 status=Dialing status-code=0 -> stat=ENROUTE final=False
+2026-04-30 09:40:03,418 INFO [CB] call_id=63a502d3-0b8b-49a8-b58e-c00825feefb7 status=Ringing status-code=1 -> stat=ENROUTE final=False
+2026-04-30 09:40:03,418 INFO [CB] call_id=63a502d3-0b8b-49a8-b58e-c00825feefb7 status=Ringing status-code=1 -> stat=ENROUTE final=False
+2026-04-30 09:40:11,738 INFO [CB] call_id=63a502d3-0b8b-49a8-b58e-c00825feefb7 status=Established status-code=2 -> stat=ACCEPTD final=False
+2026-04-30 09:40:25,417 INFO [CB] call_id=63a502d3-0b8b-49a8-b58e-c00825feefb7 status=Disconnected status-code=3 -> stat=DELIVRD final=True
+2026-04-30 09:40:25,418 INFO [DLR] send to system_id=system peer=51.79.230.231:36888 call_id=63a502d3-0b8b-49a8-b58e-c00825feefb7 stat=DELIVRD err=000 ok=True
+2026-04-30 09:40:25,459 INFO connection closed from 51.79.230.231:36888
+2026-04-30 09:46:33,255 INFO SQLite billing DB: ./smpp.db
+2026-04-30 09:46:33,255 INFO Loaded 1 whitelist CIDRs from ./whitelist.txt
+2026-04-30 09:46:33,255 INFO NextGenSwitch enabled: https://sg.nextgenswitch.com/api/v1/call
+2026-04-30 09:46:33,255 INFO play_mode=redirect play_url=http://51.79.230.231:8980
+2026-04-30 09:46:33,255 INFO NextGenSwitch statusCallback: http://51.79.230.231:8980/ngs/status
+2026-04-30 09:46:33,257 INFO HTTP callback server listening on http://51.79.230.231:8980/ngs/status
+2026-04-30 09:46:33,258 INFO SMPP server listening on ('51.79.230.231', 2775)
+2026-04-30 09:47:02,061 INFO connection established from 51.79.230.231:39916
+2026-04-30 09:47:02,219 INFO bind from 51.79.230.231:39916 ip=51.79.230.231 system_id='system' bind_mode=TRX system_type='' if_ver=0x34 -> OK
+2026-04-30 09:47:02,219 INFO submit_sm from 51.79.230.231:39916: from=1000 to=1012 reg_deliv=0x01 msg="G-241652 is your GOOGLE verification code. Don't share your code with anyone."
+2026-04-30 09:47:02,219 INFO change spoken to G - 2.
+4.
+1.
+6.
+5.
+2.
+is your GOOGLE verification code. Don't share your code with anyone.
+2026-04-30 09:47:02,219 INFO [NGS] play_mode=redirect url=http://51.79.230.231:8980/play/-D1wuGGLTr1EzVk36LmGJA
+2026-04-30 09:47:02,219 INFO [NGS] POST https://sg.nextgenswitch.com/api/v1/call to='1012' from='1000' (orig_from='1000') statusCallback='http://51.79.230.231:8980/ngs/status'
+2026-04-30 09:47:02,495 INFO [NGS] HTTP 200 body={"call_id":"182973fb-b3f0-4efa-b1f6-0ccaf8b3a5d9","from":"1000","to":"1012","create_time":"2026-04-30 09:47:02","end_time":"","duration":0,"establihed_at":null,"status":"Dialing","status-code":0,"disconnect_code":null}
+2026-04-30 09:47:02,496 INFO submit_sm_resp to 51.79.230.231:39916: ok=True status=0x00000000 message_id='182973fb-b3f0-4efa-b1f6-0ccaf8b3a5d9' call_id='182973fb-b3f0-4efa-b1f6-0ccaf8b3a5d9' http='200' dlr_requested=True
+2026-04-30 09:47:02,521 INFO [play] GET /play/-D1wuGGLTr1EzVk36LmGJA msg="G - 2. 4. 1. 6. 5. 2. is your GOOGLE verification code. Don'"
+2026-04-30 09:47:02,524 INFO [CB] call_id=182973fb-b3f0-4efa-b1f6-0ccaf8b3a5d9 status=Dialing status-code=0 -> stat=ENROUTE final=False
+2026-04-30 09:47:02,534 INFO [CB] call_id=182973fb-b3f0-4efa-b1f6-0ccaf8b3a5d9 status=Ringing status-code=1 -> stat=ENROUTE final=False
+2026-04-30 09:47:02,534 INFO [CB] call_id=182973fb-b3f0-4efa-b1f6-0ccaf8b3a5d9 status=Ringing status-code=1 -> stat=ENROUTE final=False
+2026-04-30 09:47:13,959 INFO [CB] call_id=182973fb-b3f0-4efa-b1f6-0ccaf8b3a5d9 status=Established status-code=2 -> stat=ACCEPTD final=False
+2026-04-30 09:47:27,535 INFO [CB] call_id=182973fb-b3f0-4efa-b1f6-0ccaf8b3a5d9 status=Disconnected status-code=3 -> stat=DELIVRD final=True
+2026-04-30 09:47:27,535 INFO [DLR] send to system_id=system peer=51.79.230.231:39916 call_id=182973fb-b3f0-4efa-b1f6-0ccaf8b3a5d9 stat=DELIVRD err=000 ok=True
+2026-04-30 09:47:27,577 INFO connection closed from 51.79.230.231:39916
+2026-04-30 09:47:53,407 INFO SQLite billing DB: ./smpp.db
+2026-04-30 09:47:53,408 INFO Loaded 1 whitelist CIDRs from ./whitelist.txt
+2026-04-30 09:47:53,408 INFO NextGenSwitch enabled: https://sg.nextgenswitch.com/api/v1/call
+2026-04-30 09:47:53,408 INFO play_mode=redirect play_url=http://51.79.230.231:8980
+2026-04-30 09:47:53,408 INFO NextGenSwitch statusCallback: http://51.79.230.231:8980/ngs/status
+2026-04-30 09:47:53,409 INFO HTTP callback server listening on http://51.79.230.231:8980/ngs/status
+2026-04-30 09:47:53,410 INFO SMPP server listening on ('51.79.230.231', 2775)
+2026-04-30 09:48:23,905 INFO connection established from 51.79.230.231:40714
+2026-04-30 09:48:24,028 INFO bind from 51.79.230.231:40714 ip=51.79.230.231 system_id='system' bind_mode=TRX system_type='' if_ver=0x34 -> OK
+2026-04-30 09:48:24,028 INFO submit_sm from 51.79.230.231:40714: from=1000 to=1012 reg_deliv=0x01 msg="G-241652 is your GOOGLE verification code. Don't share your code with anyone."
+2026-04-30 09:48:24,028 INFO change spoken to G - 2.
+4.
+1.
+6.
+5.
+2.
+is your GOOGLE verification code. Don't share your code with anyone.
+2026-04-30 09:48:24,029 INFO [NGS] play_mode=redirect url=http://51.79.230.231:8980/play/POrwfhts0PKmjO62ARJcGg
+2026-04-30 09:48:24,029 INFO [NGS] POST https://sg.nextgenswitch.com/api/v1/call to='1012' from='1000' (orig_from='1000') statusCallback='http://51.79.230.231:8980/ngs/status'
+2026-04-30 09:48:24,125 INFO [NGS] HTTP 200 body={"call_id":"53182eed-1477-4684-ac7e-fb4b60e7c14b","from":"1000","to":"1012","create_time":"2026-04-30 09:48:24","end_time":"","duration":0,"establihed_at":null,"status":"Dialing","status-code":0,"disconnect_code":null}
+2026-04-30 09:48:24,126 INFO submit_sm_resp to 51.79.230.231:40714: ok=True status=0x00000000 message_id='53182eed-1477-4684-ac7e-fb4b60e7c14b' call_id='53182eed-1477-4684-ac7e-fb4b60e7c14b' http='200' dlr_requested=True
+2026-04-30 09:48:24,155 INFO [CB] call_id=53182eed-1477-4684-ac7e-fb4b60e7c14b status=Ringing status-code=1 -> stat=ENROUTE final=False
+2026-04-30 09:48:24,156 INFO [play] GET /play/POrwfhts0PKmjO62ARJcGg msg="G - 2. 4. 1. 6. 5. 2. is your GOOGLE verification code. Don'"
+2026-04-30 09:48:24,159 INFO [CB] call_id=53182eed-1477-4684-ac7e-fb4b60e7c14b status=Dialing status-code=0 -> stat=ENROUTE final=False
+2026-04-30 09:48:24,160 INFO [CB] call_id=53182eed-1477-4684-ac7e-fb4b60e7c14b status=Ringing status-code=1 -> stat=ENROUTE final=False
+2026-04-30 09:48:27,948 INFO [CB] call_id=53182eed-1477-4684-ac7e-fb4b60e7c14b status=Established status-code=2 -> stat=ACCEPTD final=False
+2026-04-30 09:48:42,162 INFO [CB] call_id=53182eed-1477-4684-ac7e-fb4b60e7c14b status=Disconnected status-code=3 -> stat=DELIVRD final=True
+2026-04-30 09:48:42,162 INFO [DLR] send to system_id=system peer=51.79.230.231:40714 call_id=53182eed-1477-4684-ac7e-fb4b60e7c14b stat=DELIVRD err=000 ok=True
+2026-04-30 09:48:42,204 INFO connection closed from 51.79.230.231:40714
+2026-04-30 09:52:37,549 INFO SQLite billing DB: ./smpp.db
+2026-04-30 09:52:37,550 INFO Loaded 1 whitelist CIDRs from ./whitelist.txt
+2026-04-30 09:52:37,550 INFO NextGenSwitch enabled: https://sg.nextgenswitch.com/api/v1/call
+2026-04-30 09:52:37,550 INFO statusCallback auto-derived: http://51.79.230.231:8980/ngs/status
+2026-04-30 09:52:37,550 INFO play_mode=redirect play_url=http://51.79.230.231:8980
+2026-04-30 09:52:37,552 INFO HTTP callback server listening on http://51.79.230.231:8980/ngs/status
+2026-04-30 09:52:37,552 INFO SMPP server listening on ('51.79.230.231', 2775)
+2026-04-30 09:53:49,659 INFO connection established from 51.79.230.231:43194
+2026-04-30 09:53:49,781 INFO bind from 51.79.230.231:43194 ip=51.79.230.231 system_id='system' bind_mode=TRX system_type='' if_ver=0x34 -> OK
+2026-04-30 09:53:49,781 INFO submit_sm from 51.79.230.231:43194: from=1000 to=1012 reg_deliv=0x01 msg="G-241639 is your GOOGLE verification code. Don't share your code with anyone."
+2026-04-30 09:53:49,781 INFO change spoken to G - 2.
+4.
+1.
+6.
+3.
+9.
+is your GOOGLE verification code. Don't share your code with anyone.
+2026-04-30 09:53:49,781 INFO [NGS] play_mode=redirect url=http://51.79.230.231:8980/play/0xnCobVxMU5UU4WicWeoHA
+2026-04-30 09:53:49,782 INFO [NGS] POST https://sg.nextgenswitch.com/api/v1/call to='1012' from='1000' (orig_from='1000') statusCallback='http://51.79.230.231:8980/ngs/status'
+2026-04-30 09:53:50,241 INFO [NGS] HTTP 200 body={"call_id":"f2fb962b-99c1-4cea-ba97-7e94c45e5c69","from":"1000","to":"1012","create_time":"2026-04-30 09:53:50","end_time":"","duration":0,"establihed_at":null,"status":"Dialing","status-code":0,"disconnect_code":null}
+2026-04-30 09:53:50,243 INFO submit_sm_resp to 51.79.230.231:43194: ok=True status=0x00000000 message_id='f2fb962b-99c1-4cea-ba97-7e94c45e5c69' call_id='f2fb962b-99c1-4cea-ba97-7e94c45e5c69' http='200' dlr_requested=True
+2026-04-30 09:53:50,267 INFO [play] GET /play/0xnCobVxMU5UU4WicWeoHA msg="G - 2. 4. 1. 6. 3. 9. is your GOOGLE verification code. Don'"
+2026-04-30 09:53:50,269 INFO [CB] call_id=f2fb962b-99c1-4cea-ba97-7e94c45e5c69 status=Dialing status-code=0 -> stat=ENROUTE final=False
+2026-04-30 09:53:50,281 INFO [CB] call_id=f2fb962b-99c1-4cea-ba97-7e94c45e5c69 status=Ringing status-code=1 -> stat=ENROUTE final=False
+2026-04-30 09:53:50,282 INFO [CB] call_id=f2fb962b-99c1-4cea-ba97-7e94c45e5c69 status=Ringing status-code=1 -> stat=ENROUTE final=False
+2026-04-30 09:53:53,447 INFO [CB] call_id=f2fb962b-99c1-4cea-ba97-7e94c45e5c69 status=Established status-code=2 -> stat=ACCEPTD final=False
+2026-04-30 09:54:08,276 INFO [CB] call_id=f2fb962b-99c1-4cea-ba97-7e94c45e5c69 status=Disconnected status-code=3 -> stat=DELIVRD final=True
+2026-04-30 09:54:08,276 INFO [DLR] send to system_id=system peer=51.79.230.231:43194 call_id=f2fb962b-99c1-4cea-ba97-7e94c45e5c69 stat=DELIVRD err=000 ok=True
+2026-04-30 09:54:08,318 INFO connection closed from 51.79.230.231:43194
