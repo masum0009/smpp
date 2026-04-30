@@ -1,0 +1,47 @@
+[transport-udp]
+type=transport
+protocol=udp
+bind=0.0.0.0:5060
+external_signaling_address=YOUR_PUBLIC_IP
+external_media_address=YOUR_PUBLIC_IP
+; set this to your container bridge subnet if using bridge networking
+; example only:
+; local_net=10.88.0.0/16
+
+[1001]
+type=auth
+auth_type=userpass
+username=1001
+password=CHANGE_ME
+
+[1001]
+type=aor
+max_contacts=1
+remove_existing=yes
+
+[1001]
+type=endpoint
+transport=transport-udp
+context=from-users
+disallow=all
+allow=ulaw,alaw
+auth=1001
+aors=1001
+direct_media=no
+rtp_symmetric=yes
+force_rport=yes
+rewrite_contact=yes
+
+[trunk-out]
+type=aor
+contact=sip:YOUR_TRUNK_IP:5060
+qualify_frequency=60
+
+[trunk-out]
+type=endpoint
+transport=transport-udp
+context=from-trunk
+disallow=all
+allow=g729
+aors=trunk-out
+direct_media=no

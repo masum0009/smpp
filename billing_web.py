@@ -706,7 +706,13 @@ BASE = """\
 <nav class="navbar navbar-expand-lg mb-4">
   <div class="container">
     <a class="navbar-brand fw-bold" href="{{ url_for('dashboard') }}">SMPP Billing</a>
-    <div class="collapse navbar-collapse">
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#mainNav"
+            aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation"
+            style="border-color:rgba(255,255,255,.3)">
+      <span class="navbar-toggler-icon" style="filter:invert(1)"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="{{ url_for('dashboard') }}">Dashboard</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ url_for('add_user') }}">Add User</a></li>
@@ -880,11 +886,10 @@ def dashboard():
     """)
     stats_row = query_one("""
         SELECT
-          COUNT(DISTINCT u.id)           as total_users,
-          SUM(u.is_active)               as active_users,
-          COUNT(m.id)                    as total_messages,
-          COALESCE(SUM(m.charge), 0)     as total_revenue
-        FROM users u LEFT JOIN messages m ON m.user_id = u.id
+          (SELECT COUNT(*)        FROM users)              as total_users,
+          (SELECT SUM(is_active)  FROM users)              as active_users,
+          (SELECT COUNT(*)        FROM messages)           as total_messages,
+          (SELECT COALESCE(SUM(charge), 0) FROM messages) as total_revenue
     """)
     return render_template_string(DASHBOARD_TMPL, users=users, stats=stats_row)
 
